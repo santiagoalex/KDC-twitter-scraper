@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: twitter-scraper-kcd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: twitter-scraper-kcd
+  template:
+    metadata:
+      labels:
+        app: twitter-scraper-kcd
+    spec:
+      containers:
+      - name: twitter-scraper-kcd-container
+        image: kcd-twitter-scraping:latest
+        ports:
+        - containerPort: 8080
